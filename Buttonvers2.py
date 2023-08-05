@@ -4,7 +4,7 @@ import pandas as pd
 
 # Function to retrieve data from the database and store it in a DataFrame
 def get_data_from_db():
-    conn = sqlite3.connect('PeriodTracker.db')
+    conn = sqlite3.connect('PeriodTracker-1.db')
     query = "SELECT District FROM regionInfo"
     df = pd.read_sql_query(query, conn)
     conn.close()
@@ -12,7 +12,7 @@ def get_data_from_db():
 
 # Function to retrieve towns based on the selected district
 def get_towns(selected_district):
-    conn = sqlite3.connect('PeriodTracker.db')
+    conn = sqlite3.connect('PeriodTracker-1.db')
     query = f"SELECT Name FROM regionInfo WHERE District='{selected_district}'"
     df = pd.read_sql_query(query, conn)
     conn.close()
